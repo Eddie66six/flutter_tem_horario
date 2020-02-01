@@ -15,7 +15,12 @@ class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBarWidget(menus: store.menus, callbackChange:  store.chagePage),
+      bottomNavigationBar: BottomNavigationBarWidget(
+        menus: store.menus, callbackChange:  store.chagePage,
+        backgroundColor: Colors.purple,
+        labelColor: Colors.grey,
+        selectedColor: Colors.indigo,
+      ),
       body: Observer(
         builder: (_) => store.currentPage,
       ),

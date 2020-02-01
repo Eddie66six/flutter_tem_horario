@@ -18,6 +18,9 @@ abstract class _BottomNavigationBarModel with Store {
   IconData icon;
   String label;
 
+  //internal
+  int index;
+
   @action
   void select() {
     this.selected = true;

@@ -13,9 +13,9 @@ abstract class _BottomNavigationBarBase with Store {
   init(List<BottomNavigationBarModel> menus){
     this.menus = menus;
     for (var i = 0; i < this.menus.length; i++) {
+      this.menus[i].index = i;
       if(this.menus[i].selected){
         this.selectedItem = this.menus[i];
-        break;
       }
     }
   }

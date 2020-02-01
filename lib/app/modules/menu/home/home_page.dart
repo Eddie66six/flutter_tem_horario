@@ -12,11 +12,18 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.green,
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        children: <Widget>[],
+      body: ListView(
+        children: List.generate(20, (index) => 
+          Container(
+            color: index % 2 == 0 ? Colors.cyan : Colors.green,
+            padding: EdgeInsets.all(20),
+            child: Text("23423"),
+          )
+        )
       ),
     );
   }
