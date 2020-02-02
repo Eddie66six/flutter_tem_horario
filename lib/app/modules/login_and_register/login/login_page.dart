@@ -22,16 +22,36 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Column(
-        children: <Widget>[
-          FlatButton(
-            child: Text(CustomLocalizations.of(navigatorKey.currentContext).translate("Entrar")),
-            onPressed: _login,
-          )
-        ],
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 30),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              height: 130,
+              width: 130,
+              color: Colors.red,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                hintText: CustomLocalizations.of(navigatorKey.currentContext).translate("Email")
+              ),
+              keyboardType: TextInputType.emailAddress,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                hintText: CustomLocalizations.of(navigatorKey.currentContext).translate("Senha")
+              ),
+              obscureText: true,
+            ),
+            FlatButton(
+              child: Text(CustomLocalizations.of(navigatorKey.currentContext).translate("Entrar")),
+              onPressed: _login,
+            ),
+            Text(CustomLocalizations.of(navigatorKey.currentContext).translate("Esqueci minha senha")),
+            Text(CustomLocalizations.of(navigatorKey.currentContext).translate("Ainda não tenho cadastro"))
+          ],
+        ),
       ),
     );
   }

@@ -1,3 +1,5 @@
+import 'package:flutter_tem_horario/app/modules/menu/profile/profile_controller.dart';
+import 'package:flutter_tem_horario/app/modules/menu/search/search_controller.dart';
 import 'package:flutter_tem_horario/app/modules/menu/schedule/schedule_controller.dart';
 import 'package:flutter_tem_horario/app/modules/menu/home/home_controller.dart';
 import 'package:flutter_tem_horario/app/modules/menu/menu_controller.dart';
@@ -8,6 +10,8 @@ import 'package:flutter_tem_horario/app/modules/menu/menu_page.dart';
 class MenuModule extends ModuleWidget {
   @override
   List<Bloc> get blocs => [
+        Bloc((i) => ProfileController()),
+        Bloc((i) => SearchController()),
         Bloc((i) => ScheduleController()),
         Bloc((i) => MenuController()),
         Bloc((i) => HomeController()),
