@@ -17,15 +17,18 @@ class _SchedulePageState extends State<SchedulePage> {
     );
   }
 
-  _buildDashed(double sizeContent){
+  _buildDashed(double sizeContent, Color backgroundColor){
     var size = sizeContent/15;
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: List.generate(size.toInt(), (index) => 
-        Container(
-          color: Colors.black54, height: 1, width: sizeContent/size-4,
-          margin: EdgeInsets.symmetric(horizontal: 2)
-        )
+    return Container(
+      color: backgroundColor,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: List.generate(size.toInt(), (index) => 
+          Container(
+            color: Colors.black54, height: 1, width: sizeContent/size-4,
+            margin: EdgeInsets.symmetric(horizontal: 2)
+          )
+        ),
       ),
     );
   }
@@ -63,7 +66,7 @@ class _SchedulePageState extends State<SchedulePage> {
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                 ),
-                insertDivider ? _buildDashed(width) : SizedBox()
+                insertDivider ? _buildDashed(width, Colors.blueAccent) : SizedBox()
               ],
             ),
     );
@@ -71,6 +74,7 @@ class _SchedulePageState extends State<SchedulePage> {
 
   @override
   Widget build(BuildContext context) {
+    var lenght = 2;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -83,11 +87,11 @@ class _SchedulePageState extends State<SchedulePage> {
             _buildCardNextAppointmentTitle(),
             Expanded(
               child: ListView(
-                children: List.generate(10, (index) => 
+                children: List.generate(lenght, (index) => 
                 _buildCardNextAppointment(
                   "Salao: seila unhas bla bla bla" + index.toString(),
                   "${index + 1}/01/2020 12:00",
-                  index < 9, index == 0, index == 9))
+                  index < lenght -1, index == 0, index == lenght -1))
               ),
             ),
           ],
